@@ -21,8 +21,8 @@ function ListElement(props) {
                         {text}
                     </div>
                     <ButtonContainer className="buttons">
-                        <button>button 1</button>
-                        <button>button 2</button>
+                        <button>Next</button>
+                        <button>Remove</button>
                     </ButtonContainer>
                 </ElementHeader>
 
