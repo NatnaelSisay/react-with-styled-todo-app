@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { Nav, Header, Button, MainContainer } from "../CustomStyledElements";
 import Container from "../Container";
+import ListElement from "../ListElement";
 function App() {
     return (
         <div className="App">
@@ -11,7 +12,17 @@ function App() {
             </Nav>
 
             <MainContainer>
-                <Container header={"Todos"} color="red" hasButton={true} />
+                <Container header={"Todos"} color="red" hasButton={true}>
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                    <ListElement text="check" />
+                </Container>
                 <Container header={"On Progress"} color="yellow" />
                 <Container header={"Completed"} />
             </MainContainer>
