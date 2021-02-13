@@ -1,11 +1,20 @@
-import { render, screen } from "@testing-library/react";
 import App from ".";
 
 import { shallow } from "enzyme";
 
-test("checkout enzyme", () => {
-    const wrapper = shallow(<App />);
-    // console.log("Wrapper", wrapper.debug());
-    const link = wrapper.find("header");
-    expect(link.text()).toBe("Todo");
+describe("test header", () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(<App />);
+    });
+
+    test("should have lead header of 'Todo Application'", () => {
+        const header = wrapper.find(".header");
+        expect(header.text()).toBe("Todo Application");
+    });
+
+    test("should have a button called '+ Add Todo'", () => {
+        const button = wrapper.find(".addTodo");
+        expect(button.text()).toBe("+Add Todo");
+    });
 });
