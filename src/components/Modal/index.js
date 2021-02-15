@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
-import { ModalContext } from "../../context";
+import { ModalContext, TodoContext } from "../../context";
 import { Header } from "../CustomStyledElements";
 import styled from "styled-components";
 const ModalContainer = styled.div`
@@ -81,6 +81,17 @@ const ModalButtons = styled.div`
 
 function Modal(props) {
     const { status, toggle } = useContext(ModalContext);
+    const { addTodo } = useContext(TodoContext);
+
+    const [title, setTitle] = useState("");
+    const [detail, setDetail] = useState("");
+
+    const addNewTodo = () => {
+        addTodo({ title, detail });
+        setTitle("");
+        setDetail("");
+        toggle();
+    };
     // console.log(status);
     return (
         <div>
@@ -94,17 +105,23 @@ function Modal(props) {
                                     placeholder="Do .... "
                                     className="inputField"
                                     type="text"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
                                 />
                                 <textarea
                                     placeholder="Detail ..."
                                     rows="4"
                                     className="textArea"
+                                    value={detail}
+                                    onChange={(e) => setDetail(e.target.value)}
                                 ></textarea>
                             </InputSection>
 
                             <ModalButtons>
                                 <button onClick={() => toggle()}>Cancel</button>
-                                <button>Add</button>
+                                <button onClick={() => addNewTodo()}>
+                                    Add
+                                </button>
                             </ModalButtons>
                         </DataSection>
                     </InnerContainer>

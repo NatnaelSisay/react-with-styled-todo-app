@@ -21,7 +21,14 @@ const TodoProvider = (props) => {
 
     // add
     const addTodo = (newTodo) => {
-        setTodos((previous) => [...previous, newTodo]);
+        const id = todos.length + 1;
+        const status = 0;
+        const data = {
+            id,
+            status,
+            ...newTodo,
+        };
+        setTodos((previous) => [...previous, data]);
     };
     // update
 
