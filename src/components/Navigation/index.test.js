@@ -1,11 +1,11 @@
-import App from ".";
+import Navigation from ".";
 
 import { shallow } from "enzyme";
 
 describe("test header", () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<App />);
+        wrapper = shallow(<Navigation />);
     });
 
     test("should have lead header of 'Todo Application'", () => {

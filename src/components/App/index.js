@@ -1,33 +1,41 @@
-import styled from "styled-components";
+import { MainContainer } from "../CustomStyledElements";
 
-import { Nav, Header, Button, MainContainer } from "../CustomStyledElements";
+import Navigation from "../Navigation";
 import Container from "../Container";
 import ListElement from "../ListElement";
 import Modal from "../Modal";
+
+import { ModalProvider, TodoProvider } from "../../context";
+
 function App() {
     return (
         <div className="App">
-            <Nav>
-                <Header className="header">Todo Application</Header>
-                <Button className="addTodo">+Add Todo</Button>
-            </Nav>
+            <TodoProvider>
+                <ModalProvider>
+                    <Navigation />
 
-            <MainContainer>
-                <Container header={"Todos"} color="red" hasButton={true}>
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                    <ListElement text="check" />
-                </Container>
-                <Container header={"On Progress"} color="yellow" />
-                <Container header={"Completed"} />
-            </MainContainer>
-            {false && <Modal />}
+                    <MainContainer>
+                        <Container
+                            header={"Todos"}
+                            color="red"
+                            hasButton={true}
+                        >
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                            <ListElement text="check" />
+                        </Container>
+                        <Container header={"On Progress"} color="yellow" />
+                        <Container header={"Completed"} />
+                    </MainContainer>
+                    <Modal />
+                </ModalProvider>
+            </TodoProvider>
         </div>
     );
 }

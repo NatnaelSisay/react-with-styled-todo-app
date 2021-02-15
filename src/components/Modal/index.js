@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { ModalContext } from "../../context";
 import { Header } from "../CustomStyledElements";
 import styled from "styled-components";
 const ModalContainer = styled.div`
@@ -79,31 +80,37 @@ const ModalButtons = styled.div`
 `;
 
 function Modal(props) {
+    const { status, toggle } = useContext(ModalContext);
+    // console.log(status);
     return (
-        <ModalContainer>
-            <InnerContainer>
-                <ModalHeader className="header">Add Todo</ModalHeader>
-                <DataSection>
-                    <InputSection>
-                        <input
-                            placeholder="Do .... "
-                            className="inputField"
-                            type="text"
-                        />
-                        <textarea
-                            placeholder="Detail ..."
-                            rows="4"
-                            className="textArea"
-                        ></textarea>
-                    </InputSection>
+        <div>
+            {status && (
+                <ModalContainer>
+                    <InnerContainer>
+                        <ModalHeader className="header">Add Todo</ModalHeader>
+                        <DataSection>
+                            <InputSection>
+                                <input
+                                    placeholder="Do .... "
+                                    className="inputField"
+                                    type="text"
+                                />
+                                <textarea
+                                    placeholder="Detail ..."
+                                    rows="4"
+                                    className="textArea"
+                                ></textarea>
+                            </InputSection>
 
-                    <ModalButtons>
-                        <button>Cancel</button>
-                        <button>Add</button>
-                    </ModalButtons>
-                </DataSection>
-            </InnerContainer>
-        </ModalContainer>
+                            <ModalButtons>
+                                <button onClick={() => toggle()}>Cancel</button>
+                                <button>Add</button>
+                            </ModalButtons>
+                        </DataSection>
+                    </InnerContainer>
+                </ModalContainer>
+            )}
+        </div>
     );
 }
 
