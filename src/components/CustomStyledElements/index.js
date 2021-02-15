@@ -71,7 +71,7 @@ const TodoContainer = styled.div`
         padding: 1rem;
     }
 
-    button {
+    .addButton {
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -88,6 +88,21 @@ const MainContainer = styled.div`
 
 const ButtonContainer = styled.div`
     display: none;
+
+    button {
+        border: none;
+        padding: 0.2rem 1rem;
+        height: 100%;
+        color: white;
+        font-weight: bold;
+    }
+
+    .next {
+        background-color: ${COLOR.green};
+    }
+    .remove {
+        background-color: ${COLOR.red};
+    }
 `;
 
 const ElementHeader = styled.div`
@@ -113,19 +128,6 @@ const ElementContainer = styled.div`
         height: 100%;
         flex-direction: column;
         justify-content: space-between;
-
-        button {
-            border: none;
-            padding: 0.2rem 1rem;
-            height: 100%;
-            color: white;
-            font-weight: bold;
-            background-color: ${COLOR.red};
-        }
-
-        button:first-child {
-            background-color: ${COLOR.green};
-        }
     }
 `;
 

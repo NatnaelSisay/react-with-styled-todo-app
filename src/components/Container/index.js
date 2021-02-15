@@ -17,7 +17,7 @@ function Container({ header, color = "green", hasButton = false, children }) {
             </Header>
             <ChildrenContainer>{children}</ChildrenContainer>
             {hasButton && (
-                <Button className="button" onClick={() => toggle()}>
+                <Button className="addButton" onClick={() => toggle()}>
                     + Add Todo
                 </Button>
             )}

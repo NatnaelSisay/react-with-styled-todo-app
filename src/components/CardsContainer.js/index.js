@@ -6,7 +6,7 @@ import ListElement from "../ListElement";
 import { TodoContext } from "../../context";
 
 function CardsContainer(props) {
-    const { todos, addTodo, deleteTodo } = useContext(TodoContext);
+    const { todos, deleteTodo, nextStep } = useContext(TodoContext);
     const onTodo = todos.filter((todo) => todo.status === 0);
     const onProgress = todos.filter((todo) => todo.status === 1);
     const onCompleted = todos.filter((todo) => todo.status === 2);
@@ -21,6 +21,7 @@ function CardsContainer(props) {
                             key={todo.id}
                             todo={todo}
                             remove={() => deleteTodo(todo.id)}
+                            next={() => nextStep(todo.id)}
                         />
                     );
                 })}
@@ -32,6 +33,7 @@ function CardsContainer(props) {
                             key={todo.id}
                             todo={todo}
                             remove={() => deleteTodo(todo.id)}
+                            next={() => nextStep(todo.id)}
                         />
                     );
                 })}

@@ -36,6 +36,22 @@ const TodoProvider = (props) => {
         // let todo = todos[todoId];
         // todo.staus = newStatus;
     };
+    const nextStep = (todoId) => {
+        const todo = todos.find((todo) => todo.id == todoId);
+        const filterOutOthers = todos.filter((todo) => todo.id !== todoId);
+
+        if (todo) {
+            // todo is not undefined
+            if (todo.status < 2) {
+                todo.status += 1;
+            }
+
+            const newTodos = [...filterOutOthers, todo];
+            setTodos(newTodos);
+        } else {
+            console.error("[ERROR]Todo element doesn't have this id, ");
+        }
+    };
     // delete
     const deleteTodo = (todoId) => {
         const newTodos = todos.filter((todo) => todo.id != todoId);
@@ -43,7 +59,7 @@ const TodoProvider = (props) => {
     };
 
     return (
-        <TodoContext.Provider value={{ todos, addTodo, deleteTodo }}>
+        <TodoContext.Provider value={{ todos, addTodo, deleteTodo, nextStep }}>
             {props.children}
         </TodoContext.Provider>
     );

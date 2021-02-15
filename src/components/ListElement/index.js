@@ -20,7 +20,7 @@ const DetailIndicator = styled.span`
 `;
 
 function ListElement(props) {
-    const { todo, remove } = props;
+    const { todo, remove, next } = props;
     console.log(props);
     const [showDetail, setShowDetail] = useState(false);
 
@@ -39,8 +39,14 @@ function ListElement(props) {
                         {todo.title}
                     </div>
                     <ButtonContainer className="buttons">
-                        <button>Next</button>
-                        <button onClick={() => remove()}>Remove</button>
+                        {todo.status < 2 ? (
+                            <button className="next" onClick={() => next()}>
+                                Next
+                            </button>
+                        ) : null}
+                        <button className="remove" onClick={() => remove()}>
+                            Remove
+                        </button>
                     </ButtonContainer>
                 </ElementHeader>
 
