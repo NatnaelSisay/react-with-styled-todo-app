@@ -77,6 +77,9 @@ const TodoContainer = styled.div`
         width: 100%;
     }
 `;
+const ChildrenContainer = styled.div`
+    padding-bottom: 2.5rem;
+`;
 
 const MainContainer = styled.div`
     display: flex;
@@ -131,6 +134,7 @@ export {
     Nav,
     Button,
     TodoContainer,
+    ChildrenContainer,
     MainContainer,
     ElementContainer,
     ElementHeader,

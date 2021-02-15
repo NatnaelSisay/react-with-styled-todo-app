@@ -1,10 +1,10 @@
 import React from "react";
-import { Header, Button, TodoContainer } from "../CustomStyledElements";
-
-import styled from "styled-components";
-const ChildrenContainer = styled.div`
-    padding-bottom: 2.5rem;
-`;
+import {
+    Header,
+    Button,
+    TodoContainer,
+    ChildrenContainer,
+} from "../CustomStyledElements";
 
 function Container({ header, color = "green", hasButton = false, children }) {
     return (
