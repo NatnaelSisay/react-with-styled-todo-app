@@ -54,6 +54,7 @@ const TodoContainer = styled.div`
     padding: 0rem 0rem;
     border-radius: 50px 50px 0px 0px;
     overflow: hidden;
+    position: relative;
     background-color: ${COLOR.lightgray};
 
     height: 80vh;
@@ -68,6 +69,12 @@ const TodoContainer = styled.div`
     h1 {
         font-size: 16px;
         padding: 1rem;
+    }
+
+    button {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
     }
 `;
 
