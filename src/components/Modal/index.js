@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 
 import { ModalContext, TodoContext } from "../../context";
-import { Header } from "../CustomStyledElements";
 import styled from "styled-components";
 const ModalContainer = styled.div`
     width: 100%;
@@ -22,6 +21,13 @@ const InnerContainer = styled.div`
     height: 50%;
     overflow: hidden;
     background-color: white;
+
+    @media (max-width: 768px) {
+        /* flex-direction: column; */
+        width: 90%;
+        /* height: 100%; */
+        padding-bottom: 4rem;
+    }
 `;
 
 const ModalHeader = styled.h1`

@@ -32,6 +32,8 @@ const Nav = styled.nav`
 
     h1 {
         color: white;
+        font-size: 20px;
+        /* font-weight: bold; */
     }
 `;
 
@@ -84,6 +86,9 @@ const ChildrenContainer = styled.div`
 const MainContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    @media (max-width: 760px) {
+        display: block;
+    }
 `;
 
 const ButtonContainer = styled.div`
