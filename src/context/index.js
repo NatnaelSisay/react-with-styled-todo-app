@@ -38,19 +38,17 @@ const TodoProvider = (props) => {
     };
     const nextStep = (todoId) => {
         const todo = todos.find((todo) => todo.id == todoId);
-        const filterOutOthers = todos.filter((todo) => todo.id !== todoId);
 
-        if (todo) {
-            // todo is not undefined
-            if (todo.status < 2) {
-                todo.status += 1;
-            }
+        if (!todo)
+            throw new Error("[ERROR]Todo element doesn't have this id, ");
+        if (todo.status > 2) return;
 
-            const newTodos = [...filterOutOthers, todo];
-            setTodos(newTodos);
-        } else {
-            console.error("[ERROR]Todo element doesn't have this id, ");
-        }
+        const newTodos = todos.map((todo) => {
+            if (todo.id !== todoId) return todo;
+            return { ...todo, status: todo.status + 1 };
+        });
+
+        setTodos(newTodos);
     };
     // delete
     const deleteTodo = (todoId) => {
