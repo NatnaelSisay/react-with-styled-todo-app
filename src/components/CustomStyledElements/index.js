@@ -64,9 +64,6 @@ const TodoContainer = styled.div`
     flex-direction: column;
 
     box-shadow: 0 15px 14px rgba(33, 33, 33, 0.9);
-    div {
-        overflow: scroll;
-    }
 
     h1 {
         font-size: 16px;
@@ -81,6 +78,10 @@ const TodoContainer = styled.div`
 `;
 const ChildrenContainer = styled.div`
     padding-bottom: 2.5rem;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 `;
 
 const MainContainer = styled.div`
